@@ -1,0 +1,46 @@
+$lg: 1140px;
+$md: 992px;
+$sm: 768px;
+$xs: 576px;
+$gutter: 15px;
+
+@mixin media($size: $lg) {
+    @media (max-width: $size) {
+        @content;
+    }
+}
+
+@mixin container($padding: $gutter) {
+    max-width: $lg;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $padding;
+    padding-right: $padding;
+    @include media() {
+        max-width: $md;
+    }
+    @include media($md) {
+        max-width: $sm;
+    }
+    @include media($sm) {
+        max-width: $xs;
+    }
+}
+
+$fonts: ('Font name', 'Regular', 400),
+        ('Font name', 'Bold', 700);
+        
+@each $family, $name, $weight in $fonts {
+    @font-face {
+        font-family: $family;
+        src: url(fonts/#{$family}/#{$family}-#{$name}.ttf);
+        font-weight: $weight;
+    }
+}
+
+// $font-play: 'PlayfairDisplay';
+// $font-aw: 'fontawesome';
+
+// $body: #000;
+// $color: #fff;

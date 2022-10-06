@@ -1,0 +1,65 @@
+.contact {
+    padding: 14px 0;
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        color: $contact-color;
+        font-size: 12px;
+
+        @include media(400px) {
+            justify-content: space-between;
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+
+        &:last-of-type {
+            margin-left: auto;
+
+            @include media(400px) {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__item {
+        &:last-of-type::before {
+            @include media(400px) {
+                display: block;
+                width: 110px;
+                height: 1px;
+                background: $contact-color;
+                margin: 8px 0;
+            }
+        }
+
+        &::before {
+            content: '|';
+            margin: 0 13px;
+
+            @include media(400px) {
+                content: '';
+                margin: 0;
+            }
+        }
+    }
+
+    &__desc {
+        @include media(400px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    &__text {
+        @include media($sm) {
+            display: none;
+        }
+    }
+}
